@@ -10,7 +10,7 @@ const ArtistsTab = () => {
   const [showMore, setShowMore] = useState(false);
 
   useEffect(() => {
-    if(query == undefined || query == "") {
+    if(query === undefined || query === "") {
       setArtistList([]);
       setShowMore(false);
       return;
@@ -34,7 +34,7 @@ const ArtistsTab = () => {
     setArtistList(e => [...e, ...(Array(20).fill(-1))]);
     (async _ => {
       const response = await napster.get(`/search?query=${query}&type=artist&per_type_limit=20&offset=${offset}`);
-      if (response.data.search.data.artists == 0) {
+      if (response.data.search.data.artists === 0) {
         setShowMore(false);
       }
       setArtistList([...oldState, ...response.data.search.data.artists]);

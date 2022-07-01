@@ -10,7 +10,7 @@ const TracksTab = () => {
   const [showMore, setShowMore] = useState(false);
 
   useEffect(() => {
-    if(query == undefined || query == "") {
+    if(query === undefined || query === "") {
       setTrackList([]);
       setShowMore(false);
       return;
@@ -35,7 +35,7 @@ const TracksTab = () => {
     setTrackList(e => [...e, ...(Array(20).fill(-1))]);
     (async _ => {
       const response = await napster.get(`/search?query=${query}&type=track&per_type_limit=20&offset=${offset}`);
-      if (response.data.search.data.tracks == 0) {
+      if (response.data.search.data.tracks === 0) {
         setShowMore(false);
       }
       setTrackList([...oldState, ...response.data.search.data.tracks]);
