@@ -10,3 +10,5 @@
 
 
 npx tailwindcss -i ./src/index.css -o ./public/index.css --watch
+
+Hosted URL - https://geek-tunes.netlify.app/
